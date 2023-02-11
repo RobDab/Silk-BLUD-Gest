@@ -37,7 +37,24 @@ namespace Silk_BLUD_Gest.Models
 
         public override string[] GetRolesForUser(string username)
         {
-            throw new NotImplementedException();
+            DBContext db = new DBContext();
+
+            List<string> roles = new List<string>();
+
+            try
+            {
+                int userRole = db.Users.Where(u => u.Username == username).First().RoleID;
+                string roleToReturn = db.Roles.Where(r => r.RoleID == userRole).First().Role;
+
+                roles.Add(roleToReturn);
+                return roles.ToArray();
+            }
+            catch
+            {
+                return Array.Empty<string>();
+            }
+
+            
         }
 
         public override string[] GetUsersInRole(string roleName)
