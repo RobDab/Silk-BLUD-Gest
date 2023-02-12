@@ -226,11 +226,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Donors\Create.cshtml" />
+    <Content Include="Views\Users\LogIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Donations\" />
-    <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

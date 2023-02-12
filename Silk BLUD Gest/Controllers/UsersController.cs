@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Silk_BLUD_Gest.Models;
 
 namespace Silk_BLUD_Gest.Controllers
@@ -35,6 +36,37 @@ namespace Silk_BLUD_Gest.Controllers
                 return HttpNotFound();
             }
             return View(users);
+        }
+
+        public ActionResult LogIn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult LogIn(Users user)
+        {
+           
+            int dbCount = db.Users.Where(u => u.Username == user.Username).Count();
+
+            if (dbCount != 0)
+            {
+                Users dbUser = db.Users.Where(u => u.Username == user.Username).First();
+                if(dbUser.Password == user.Password)
+                {
+                    FormsAuthentication.SetAuthCookie(user.Username, true);
+                    return Redirect(FormsAuthentication.DefaultUrl);
+                }else
+                {
+                    ViewBag.PassErr = "Password Errata, riprova";
+                    return View();
+                }
+
+            }
+
+            ViewBag.LoginErr = "Username non riconosciuta, riprova";
+
+            return View();
         }
 
         // GET: Users/Create
