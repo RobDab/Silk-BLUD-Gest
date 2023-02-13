@@ -69,6 +69,14 @@ namespace Silk_BLUD_Gest.Controllers
             return View();
         }
 
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+
+        }
+
         // GET: Users/Create
         public ActionResult Create()
         {
