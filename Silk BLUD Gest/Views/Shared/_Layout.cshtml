@@ -64,11 +64,13 @@
                 </div>
             </div>
         </div>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - SILK Blud Gest</p>
+        <div class="w-100 body-content" style="height:100vh; overflow-y: scroll; position: relative;">
+            <div>
+                @RenderBody()
+                <hr />
+            </div>
+            <footer style="text-align: end; position:absolute; bottom: 1em; right: 1em;">
+                <p class="d-inline-block me-2">&copy; @DateTime.Now.Year - SILK Blud Gest</p>
             </footer>
         </div>
     </div>

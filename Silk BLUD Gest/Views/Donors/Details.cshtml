@@ -1,0 +1,106 @@
+﻿@model Silk_BLUD_Gest.Models.Donors
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div>
+    <h3>Dettagli di @Model.Name @Model.Lastname</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GestationWeek)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GestationWeek)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonorSince)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonorSince)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonorTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonorTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClinicalNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClinicalNotes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BreastPumpProvided)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BreastPumpProvided)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BreastPumpTaken)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BreastPumpTaken)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalDonated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalDonated)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifica", "Edit", new { id = Model.DonorID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

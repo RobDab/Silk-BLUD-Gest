@@ -227,6 +227,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Donors\Create.cshtml" />
     <Content Include="Views\Users\LogIn.cshtml" />
+    <Content Include="Views\Donors\Index.cshtml" />
+    <Content Include="Views\Donors\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

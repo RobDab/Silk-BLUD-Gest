@@ -46,7 +46,7 @@ namespace Silk_BLUD_Gest.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DonorID,Name,Lastname,Address,Contact,Active,DeliveryDate,GestationWeek,DonorSince,DonorTo,ClinicalNotes,BreastPumpProvided,BreastPumpTaken,TotalDonated")] Donors donors)
+        public ActionResult Create(Donors donors)
         {
             if (ModelState.IsValid)
             {
@@ -89,31 +89,7 @@ namespace Silk_BLUD_Gest.Controllers
             return View(donors);
         }
 
-        // GET: Donors/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Donors donors = db.Donors.Find(id);
-            if (donors == null)
-            {
-                return HttpNotFound();
-            }
-            return View(donors);
-        }
-
-        // POST: Donors/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Donors donors = db.Donors.Find(id);
-            db.Donors.Remove(donors);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+       
 
         protected override void Dispose(bool disposing)
         {
