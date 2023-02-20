@@ -20,6 +20,18 @@ namespace Silk_BLUD_Gest.Controllers
             return View(db.Donors.ToList());
         }
 
+        public ActionResult IndexActive()
+        {
+            return View(db.Donors.Where(d => d.Active));
+        }
+
+        //public JsonResult GetDonor()
+        //{
+
+        //}
+
+       
+
         // GET: Donors/Details/5
         public ActionResult Details(int? id)
         {

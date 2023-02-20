@@ -229,6 +229,7 @@
     <Content Include="Views\Users\LogIn.cshtml" />
     <Content Include="Views\Donors\Index.cshtml" />
     <Content Include="Views\Donors\Details.cshtml" />
+    <Content Include="Views\Donors\IndexActive.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

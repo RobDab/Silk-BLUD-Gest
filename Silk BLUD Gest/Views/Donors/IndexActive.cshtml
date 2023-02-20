@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Silk_BLUD_Gest.Models.Donors>
+
+@{
+    ViewBag.Title = "IndexActive";
+}
+
+<h2>Programmazione Raccolta</h2>
+
+<h4>Donatrici Attive</h4>
+<table class="table w-75">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+      
+        <th>Raccolta confermata</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+    
+        <td>
+           <input type="checkbox" class="toCollect" value="@item.DonorID" />
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+
+    <ul id="donationsToCollect">
+
+    </ul>
+</div>
+
+
+
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $(".toCollect").change(function ( event ) {
+            let donorID = event.target.value;
+
+            
+        })
+    })
+
+
+</script>*@
