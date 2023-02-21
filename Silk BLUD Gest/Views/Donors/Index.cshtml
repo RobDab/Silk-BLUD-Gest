@@ -95,7 +95,7 @@
             @Html.DisplayFor(modelItem => item.TotalDonated)
         </td>*@
         <td style="text-align: end;">
-            @Html.ActionLink("Edit", "Edit", new { id=item.DonorID }) |
+            @Html.ActionLink("Carica donazione", "Create","Donations", new { id = item.DonorID },null ) |
             @Html.ActionLink("Details", "Details", new { id=item.DonorID })
         </td>
     </tr>

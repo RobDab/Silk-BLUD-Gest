@@ -22,13 +22,17 @@ namespace Silk_BLUD_Gest.Controllers
 
         public ActionResult IndexActive()
         {
+            //ViewBag.ActiveDonorsList = db.Donors.Where(d => d.Active);
             return View(db.Donors.Where(d => d.Active));
         }
 
-        //public JsonResult GetDonor()
-        //{
+        [HttpPost]
+        public ActionResult IndexActive(IEnumerable<int> IDs)
+        {
+            return RedirectToAction("Index","Donors");
+        }
 
-        //}
+        
 
        
 

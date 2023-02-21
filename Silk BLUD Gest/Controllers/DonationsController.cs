@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -37,9 +38,13 @@ namespace Silk_BLUD_Gest.Controllers
         }
 
         // GET: Donations/Create
-        public ActionResult Create()
+        public ActionResult Create(string id)
         {
-            ViewBag.DonorID = new SelectList(db.Donors, "DonorID", "Name");
+            
+                ViewBag.DonorID = new SelectList(db.Donors, "DonorID", "DonorID");
+           
+            
+           
             return View();
         }
 

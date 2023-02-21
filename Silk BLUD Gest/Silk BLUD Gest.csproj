@@ -230,10 +230,10 @@
     <Content Include="Views\Donors\Index.cshtml" />
     <Content Include="Views\Donors\Details.cshtml" />
     <Content Include="Views\Donors\IndexActive.cshtml" />
+    <Content Include="Views\Donations\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Donations\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
