@@ -5,7 +5,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Registra Donazione</h2>
 
 
 @using (Html.BeginForm()) 
@@ -13,21 +13,24 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Donations</h4>
+        <p>Codice Donatrice: <strong>@ViewBag.DonorID</strong></p>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.DonorID, "DonorID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("DonorID", null, htmlAttributes: new { @class = "form-control" })
+               
+                @Html.EditorFor(model => model.DonorID,new { htmlAttributes = new { @class = "form-control", @value = ViewBag.DonorID, @disabled = "disabled" } })
+           
                 @Html.ValidationMessageFor(model => model.DonorID, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
+        @Html.HiddenFor(model => model.DonorID, new { Value = ViewBag.DonorID })
 
         <div class="form-group">
             @Html.LabelFor(model => model.FreezingDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FreezingDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.FreezingDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                 @Html.ValidationMessageFor(model => model.FreezingDate, "", new { @class = "text-danger" })
             </div>
         </div>

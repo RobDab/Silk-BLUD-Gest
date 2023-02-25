@@ -38,13 +38,16 @@ namespace Silk_BLUD_Gest.Controllers
         }
 
         // GET: Donations/Create
+
         public ActionResult Create(string id)
         {
-            
-                ViewBag.DonorID = new SelectList(db.Donors, "DonorID", "DonorID");
-           
-            
-           
+            if (id == null )
+            {
+                return RedirectToAction("Index","Donors");
+            }
+
+
+            ViewBag.DonorID = id;
             return View();
         }
 
@@ -53,17 +56,20 @@ namespace Silk_BLUD_Gest.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DonationID,DonorID,FreezingDate,Quantity,BottleNum")] Donations donations)
+        public ActionResult Create([Bind(Include = "DonationID,DonorID,FreezingDate,Quantity,BottleNum")] Donations donation)
         {
             if (ModelState.IsValid)
             {
-                db.Donations.Add(donations);
+                db.Donations.Add(donation);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                Stock.UpdateDonorStock(donation, db);
+
+                return RedirectToAction("Index","Donors");
             }
 
-            ViewBag.DonorID = new SelectList(db.Donors, "DonorID", "Name", donations.DonorID);
-            return View(donations);
+            ViewBag.DonorID = new SelectList(db.Donors, "DonorID", "Name", donation.DonorID);
+            return View(donation);
         }
 
         // GET: Donations/Edit/5
