@@ -39,8 +39,8 @@ namespace Silk_BLUD_Gest.Models
 
         public virtual Donors Donors { get; set; }
 
-
-        public static void UpdateDonorStock(Donations donation, DBContext db)
+        // This method will be called back to add a record in stock tab for each bottle in a donation registration
+        public static void AddToStock(Donations donation, DBContext db)
         {
             int i = 0;
            
@@ -55,9 +55,12 @@ namespace Silk_BLUD_Gest.Models
                     
                 };
 
-                bottleToAdd.BottleID = bottleToAdd.DonorID.ToString() + bottleToAdd.FreezingDate.ToString("d") + bottleToAdd.Identifier;
+                bottleToAdd.BottleID = bottleToAdd.DonorID.ToString() + "-" + bottleToAdd.FreezingDate.ToString("d") + "-" + bottleToAdd.Identifier;
 
+                db.Stock.Add(bottleToAdd);
+                db.SaveChanges();
 
+                i++;
             } while (i < donation.BottleNum);
         
         }

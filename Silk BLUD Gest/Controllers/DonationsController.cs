@@ -63,7 +63,7 @@ namespace Silk_BLUD_Gest.Controllers
                 db.Donations.Add(donation);
                 db.SaveChanges();
 
-                Stock.UpdateDonorStock(donation, db);
+                Stock.AddToStock(donation, db);
 
                 return RedirectToAction("Index","Donors");
             }
