@@ -53,7 +53,7 @@ namespace Silk_BLUD_Gest.Models
         public DateTime DonorSince { get; set; }
 
         [Column(TypeName = "date")]
-        [Display(Name = "Data fine donazione donazione")]
+        [Display(Name = "Data fine donazione")]
         public DateTime? DonorTo { get; set; }
 
         [Display(Name = "Dati Clinici")]
