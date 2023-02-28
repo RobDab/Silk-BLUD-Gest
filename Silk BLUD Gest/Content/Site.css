@@ -31,3 +31,22 @@ textarea {
     background-color: #777;
     border-color: #fff
 }
+
+#sideNavBar > * {
+    border: 0 solid;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+    #sideNavBar > *:hover {
+        border-left: 1px solid rgb(184, 83, 178);
+        border-bottom: 1px solid rgb(184, 83, 178);
+    }
+
+#sideDiv {
+    background-color: rgb(255, 211, 253); 
+}
+
+.generalBtn {
+    
+}

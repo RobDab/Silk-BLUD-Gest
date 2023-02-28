@@ -6,9 +6,9 @@
 
 <h2>Tutte le Donatrici</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<span class="ms-auto">
+    @Html.ActionLink("Create New", "Create",null , new { @class = "generalBtn btn" })
+</span>
 <table class="table" style="max-width: 700px;">
     <tr>
         <th>
@@ -95,11 +95,24 @@
             @Html.DisplayFor(modelItem => item.TotalDonated)
         </td>*@
         <td style="text-align: end;">
-            @Html.ActionLink("Carica donazione", "Create","Donations", new { id = item.DonorID },null ) |
-            @Html.ActionLink("Details", "Details", new { id=item.DonorID }) | 
-            @Html.ActionLink("Attiva", "UpdateDonorState" , new { id = item.DonorID })
+            <div class="linksInTd">
+                @Html.ActionLink("Carica donazione", "Create", "Donations", new { id = item.DonorID }, new { @class="btn btn-default"})
+                @Html.ActionLink("Details", "Details", new { id = item.DonorID }, new { @class = "btn btn-default" })
+                @if (!item.Active)
+                {
+                   @Html.ActionLink("Attiva", "UpdateDonorState", new { id = item.DonorID }, new { @class = "btn btn-default" })
+                }
+
+            </div>
         </td>
     </tr>
 }
 
 </table>
+
+
+<script>
+    $(document).ready(function () {
+        
+    })
+</script>
