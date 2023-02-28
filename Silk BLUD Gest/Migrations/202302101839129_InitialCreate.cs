@@ -78,7 +78,7 @@
                         Active = c.Boolean(nullable: false),
                         DeliveryDate = c.DateTime(nullable: false, storeType: "date"),
                         GestationWeek = c.Int(nullable: false),
-                        DonorSince = c.DateTime(nullable: false, storeType: "date"),
+                        DonorSince = c.DateTime(storeType: "date"),
                         DonorTo = c.DateTime(storeType: "date"),
                         ClinicalNotes = c.String(),
                         BreastPumpProvided = c.DateTime(storeType: "date"),

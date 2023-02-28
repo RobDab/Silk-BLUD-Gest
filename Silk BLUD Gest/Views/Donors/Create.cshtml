@@ -48,7 +48,8 @@
     </div>
 
     @* Al momento dell' inserimento, dovrebbe essere Attiva? *@
-    <div class="form-group">
+
+    @*<div class="form-group">
         @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
@@ -56,9 +57,9 @@
                 @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
             </div>
         </div>
-    </div>
+    </div>*@
 
-    <div id="DonorDates">
+    @*<div id="DonorDates">
         <div class="form-group">
             @Html.LabelFor(model => model.DonorSince, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -74,7 +75,7 @@
                 @Html.ValidationMessageFor(model => model.DonorTo, "", new { @class = "text-danger" })
             </div>
         </div>
-    </div>
+    </div>*@
 
     <div class="form-group">
         @Html.LabelFor(model => model.DeliveryDate, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -102,33 +103,33 @@
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.BreastPumpProvided, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.BreastPumpProvided, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BreastPumpProvided, "", new { @class = "text-danger" })
-        </div>
+    <div>
+        <span>Tiralatte fornito?</span>
+        <input type="checkbox" id="BreastPumpBox" />
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.BreastPumpTaken, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.BreastPumpTaken, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BreastPumpTaken, "", new { @class = "text-danger" })
+    <div id="BreastPumpInputs">
+        <div class="form-group">
+            @Html.LabelFor(model => model.BreastPumpProvided, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BreastPumpProvided, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BreastPumpProvided, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.TotalDonated, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.TotalDonated, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.TotalDonated, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.BreastPumpTaken, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BreastPumpTaken, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BreastPumpTaken, "", new { @class = "text-danger" })
+            </div>
         </div>
     </div>
+    
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Aggiungi" class="btn btn-primary" />
         </div>
     </div>
 </div>
@@ -138,17 +139,25 @@
     @Html.ActionLink("Torna Indietro", "Index")
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+       /* $('#DonorDates').hide();*/
+        $('#BreastPumpInputs').hide();
+
+        //$('#Active').change(function () {
+        //    $('#DonorDates').slideToggle(500);
+        //})
+
+        $('#BreastPumpBox').change(function () {
+            
+            $('#BreastPumpInputs').slideToggle(500);
+        })
+    })
+</script>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
 
 
-@*<script >
-    $(document).ready(function () {
-        $('#DonorDates').hide();
 
-        $("#Active").change(fucntion () {
-            $('#DonorDates')
-            })
-    })
-</script>*@

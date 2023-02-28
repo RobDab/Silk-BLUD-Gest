@@ -5,6 +5,7 @@ namespace Silk_BLUD_Gest.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Runtime.CompilerServices;
 
     public partial class Donors
     {
@@ -50,7 +51,7 @@ namespace Silk_BLUD_Gest.Models
 
         [Column(TypeName = "date")]
         [Display(Name = "Data inizio donazione")]
-        public DateTime DonorSince { get; set; }
+        public DateTime? DonorSince { get; set; }
 
         [Column(TypeName = "date")]
         [Display(Name = "Data fine donazione")]

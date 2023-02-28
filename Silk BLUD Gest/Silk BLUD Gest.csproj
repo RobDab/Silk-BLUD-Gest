@@ -140,6 +140,10 @@
     <Compile Include="Migrations\202302101839129_InitialCreate.designer.cs">
       <DependentUpon>202302101839129_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302271844124_DonorSinceNullable.cs" />
+    <Compile Include="Migrations\202302271844124_DonorSinceNullable.designer.cs">
+      <DependentUpon>202302271844124_DonorSinceNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\APPRole.cs" />
     <Compile Include="Models\BottlesInFeedings.cs" />
@@ -155,6 +159,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Assets\Silk-Logo.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -243,6 +248,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202302101839129_InitialCreate.resx">
       <DependentUpon>202302101839129_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302271844124_DonorSinceNullable.resx">
+      <DependentUpon>202302271844124_DonorSinceNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

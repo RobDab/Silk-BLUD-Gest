@@ -32,6 +32,15 @@ namespace Silk_BLUD_Gest.Controllers
             return RedirectToAction("Index","Donors");
         }
 
+        // COMPLETARE
+
+        //public ActionResult UpdateDonorState(int id)
+        //{
+        //    Donors current = db.Donors.Find(id);
+
+        //    return View(current);
+        //}
+
         
 
        
@@ -62,16 +71,18 @@ namespace Silk_BLUD_Gest.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Donors donors)
+        public ActionResult Create(Donors donor)
         {
+            
             if (ModelState.IsValid)
             {
-                db.Donors.Add(donors);
+                
+                db.Donors.Add(donor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(donors);
+            return View(donor);
         }
 
         // GET: Donors/Edit/5
