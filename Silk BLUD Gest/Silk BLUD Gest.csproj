@@ -236,6 +236,7 @@
     <Content Include="Views\Donors\Details.cshtml" />
     <Content Include="Views\Donors\IndexActive.cshtml" />
     <Content Include="Views\Donations\Create.cshtml" />
+    <Content Include="Views\Donors\UpdateDonorState.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

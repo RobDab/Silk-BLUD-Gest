@@ -34,16 +34,55 @@ namespace Silk_BLUD_Gest.Controllers
 
         // COMPLETARE
 
-        //public ActionResult UpdateDonorState(int id)
-        //{
-        //    Donors current = db.Donors.Find(id);
+        public ActionResult UpdateDonorState(string id)
+        {
+            if(id != null) {
+                Donors current = db.Donors.Find(Convert.ToInt32(id));
 
-        //    return View(current);
-        //}
+                return View(current);
+            }
+            else
+            {
+                return RedirectToAction("Index","Donors");
+            }
+           
+        }
 
-        
+        public ActionResult UpdateConfirmation(string id)
+        {
+            if(id != null) {
+                try
+                {
+                    Donors current = db.Donors.Find(Convert.ToInt32(id));
+                    current.Active = true;
 
-       
+                    db.Entry(current).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                    ViewBag.StatusOkMsg = $"Attivazione donatrice {current.DonorID} avvenuta con successo";
+
+                    return RedirectToAction("Index","Donors");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.ErrMsg = ex.Message;
+                    return View();
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Donors");
+            }
+            
+
+
+
+            
+        }
+
+
+
+
 
         // GET: Donors/Details/5
         public ActionResult Details(int? id)

@@ -1,0 +1,33 @@
+﻿@model Silk_BLUD_Gest.Models.Donors
+
+@{
+    ViewBag.Title = "UpdateDonorState";
+}
+
+<h2>Attivazione Donatrice: @Model.DonorID</h2>
+<p>@Model.Name @Model.Lastname</p>
+
+
+   
+    
+    <div class="form-horizontal">
+        <h4>Modificare lo stato della donatrice?</h4>
+        <hr />
+        
+
+
+        <div>
+            <div class="col-md-offset-2 col-md-10 d-flex gap-4">
+                @*<a href="@Url.Action("UpdateConfirmation", "Donors")" value="Conferma" class="btn btn-primary"></a>*@
+                <a href="@Url.Action("Index","Donors")" class="btn btn-primary" >Annulla</a>
+                @Html.ActionLink("Conferma","UpdateConfirmation","Donors",new { id= Model.DonorID},new { @class= "btn btn-primary"})
+            </div>
+        </div>
+    </div>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -47,6 +47,11 @@ textarea {
     background-color: rgb(255, 211, 253); 
 }
 
-.generalBtn {
-    
+.btn-blud {
+    background-color: rgb(184, 83, 178);
+}
+
+.btn-blud:hover {
+    background-color: rgb(255, 211, 253) !important;
+    color: rgb(27,27,27) !important;
 }

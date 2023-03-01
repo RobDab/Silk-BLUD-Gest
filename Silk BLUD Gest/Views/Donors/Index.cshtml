@@ -7,7 +7,7 @@
 <h2>Tutte le Donatrici</h2>
 
 <span class="ms-auto">
-    @Html.ActionLink("Create New", "Create",null , new { @class = "generalBtn btn" })
+    @Html.ActionLink("Create New", "Create",null , new { @class = "btn btn-blud text-light" })
 </span>
 <table class="table" style="max-width: 700px;">
     <tr>
@@ -50,12 +50,12 @@
         <th>
             @Html.DisplayNameFor(model => model.TotalDonated)
         </th>*@
-        <th>Gestione
+        <th class="w-50">
         </th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    <tr style="height:4em;" class="donorTr">
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
@@ -96,12 +96,12 @@
             @Html.DisplayFor(modelItem => item.TotalDonated)
         </td>*@
         <td style="text-align: end;">
-            <div class="linksInTd">
-                @Html.ActionLink("Carica donazione", "Create", "Donations", new { id = item.DonorID }, new { @class="btn btn-default"})
-                @Html.ActionLink("Details", "Details", new { id = item.DonorID }, new { @class = "btn btn-default" })
+            <div class="linksInTd" hidden>
+                @Html.ActionLink("Carica donazione", "Create", "Donations", new { id = item.DonorID }, new { @class="btn btn-primary"})
+                @Html.ActionLink("Details", "Details", new { id = item.DonorID }, new { @class = "btn btn-primary" })
                 @if (!item.Active)
                 {
-                   @Html.ActionLink("Attiva", "UpdateDonorState", new { id = item.DonorID }, new { @class = "btn btn-default" })
+                   @Html.ActionLink("Attiva", "UpdateDonorState", new { id = item.DonorID }, new { @class = "btn btn-success" })
                 }
 
             </div>
@@ -112,8 +112,15 @@
 </table>
 
 
-@*<script>
+<script>
     $(document).ready(function () {
-        
+        $('.donorTr').hover(function () {
+            $(this).find('.linksInTd').removeAttr('hidden');
+        }, 
+            function () {
+                $(this).find('.linksInTd').attr('hidden', '');
+
+            }
+        )
     })
-</script>*@
+</script>
