@@ -24,12 +24,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.Contact)
             </th>
-            <th>Raccolta confermata</th>
+            <th>Da raccogliere</th>
         </tr>
 
         @foreach (var item in Model)
         {
             <tr>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.DonorID)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
@@ -43,7 +46,7 @@
                     @Html.DisplayFor(modelItem => item.Contact)
                 </td>
                 <td>
-                    @Html.EditorFor(modelItem => item.CollectionConfirmed, new { htmlAttributes = new { @class = "ConfCheckBox", @value=item.DonorID } })
+                    <input class="CollectionBtn btn btn-default ms-auto" value="add" type="button"/>
                 </td>
             </tr>
         }
@@ -52,29 +55,26 @@
     <input id="CollectionConfirm" type="button" value="Conferma" class="btn btn-primary" />
 }
 
+<ul id="Confirmed">
 
-
-
-
+</ul>
 
 <script type="text/javascript">
-        $(document).ready(function () {
-            var IDList = [];
-            $(".ConfCheckBox").change(function ( event ) {
+    $(document).ready(function () {
+        $(".CollectionBtn").click(function () {
+            var row = $(this).closest("TR");
+            var name = $("TD", row).eq(1).html();
+            var id = $("TD", row).eq(0).html();
 
-                IDList.push(event.target.value);
-                console.log(IDList);
-            })
-
-            @*$("#CollectionConfirm").click(function () {
-                $.post('@Url.Action("IndexActive")', { IDList: IDList },
-                function () {
-                    console.log(IDList);
-                });
-            })*@
-
-
+            /*console.log(name);*/
+            $("#Confirmed").append("<li>"+ id +" - "+ name + "</li>");
         })
 
+        
 
+        $("#CollectionConfirm").click(function () {
+
+        })
+    })
 </script>
+

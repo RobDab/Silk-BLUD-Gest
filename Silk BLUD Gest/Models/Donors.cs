@@ -71,8 +71,8 @@ namespace Silk_BLUD_Gest.Models
         [Display(Name = "Totale donato")]
         public double TotalDonated { get; set; }
 
-        //[NotMapped]
-        //public bool CollectionConfirmed { get; set; }
+        [NotMapped]
+        public bool CollectionConfirmed { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Donations> Donations { get; set; }

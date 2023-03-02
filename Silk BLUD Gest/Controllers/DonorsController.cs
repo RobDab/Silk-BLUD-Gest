@@ -22,12 +22,11 @@ namespace Silk_BLUD_Gest.Controllers
 
         public ActionResult IndexActive()
         {
-            //ViewBag.ActiveDonorsList = db.Donors.Where(d => d.Active);
             return View(db.Donors.Where(d => d.Active));
         }
 
         [HttpPost]
-        public ActionResult IndexActive(IEnumerable<int> IDs)
+        public ActionResult IndexActive(List<int> id)
         {
             return RedirectToAction("Index","Donors");
         }
@@ -55,12 +54,14 @@ namespace Silk_BLUD_Gest.Controllers
                 {
                     Donors current = db.Donors.Find(Convert.ToInt32(id));
                     current.Active = true;
+                    current.DonorSince = DateTime.Now;
+                    current.DonorTo = current.DonorSince.Value.AddYears(1);
 
                     db.Entry(current).State = EntityState.Modified;
                     db.SaveChanges();
 
                     ViewBag.StatusOkMsg = $"Attivazione donatrice {current.DonorID} avvenuta con successo";
-
+                    
                     return RedirectToAction("Index","Donors");
                 }
                 catch (Exception ex)
@@ -73,11 +74,7 @@ namespace Silk_BLUD_Gest.Controllers
             {
                 return RedirectToAction("Index", "Donors");
             }
-            
-
-
-
-            
+              
         }
 
 
